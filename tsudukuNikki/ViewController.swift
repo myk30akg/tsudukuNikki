@@ -39,10 +39,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //セルが選択されたとき
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         print("\(indexPath.row)行目を選択")
-        selectedIndex = indexPath.row
+        //selectedIndex = indexPath.row
         
         //画面遷移
-        performSegueWithIdentifier("listViewSegue", sender: nil)
+        var row = indexPath.row
+        switch row {
+        case 0:
+            //0行目が選択された時
+            //print("0行目を選択")
+            performSegueWithIdentifier("listViewSegue", sender: nil)
+        case 1:
+            //1行目が選択された時
+            //print("1行目を選択")
+            performSegueWithIdentifier("calenderViewSegue", sender: nil)
+        
+        default:
+            //それ以外が選択された時
+            print("不明")
+        }
+        //0行目選択(日記一覧へ)
+        //performSegueWithIdentifier("listViewSegue", sender: nil)
+        
     }
     
     //segueで画面遷移するとき
