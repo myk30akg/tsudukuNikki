@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D798AABD1D5C5BDD00196B2E /* editViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798AABC1D5C5BDD00196B2E /* editViewController.swift */; };
 		D7CCA2BE1D5AFC7D00349915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCA2BD1D5AFC7D00349915 /* AppDelegate.swift */; };
 		D7CCA2C01D5AFC7D00349915 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCA2BF1D5AFC7D00349915 /* ViewController.swift */; };
 		D7CCA2C31D5AFC7D00349915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7CCA2C11D5AFC7D00349915 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 		D7CCA2CB1D5AFC7D00349915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7CCA2C91D5AFC7D00349915 /* LaunchScreen.storyboard */; };
 		D7CCA2D61D5AFC7D00349915 /* tsudukuNikkiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCA2D51D5AFC7D00349915 /* tsudukuNikkiTests.swift */; };
 		D7CCA2E11D5AFC7D00349915 /* tsudukuNikkiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCA2E01D5AFC7D00349915 /* tsudukuNikkiUITests.swift */; };
+		D7CCA2EF1D5AFFDD00349915 /* listViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCA2EE1D5AFFDD00349915 /* listViewController.swift */; };
+		D7CCA2F11D5B024200349915 /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D7CCA2F01D5B024200349915 /* icon.jpg */; };
+		D7CCA2F31D5B02F700349915 /* header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D7CCA2F21D5B02F600349915 /* header.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D798AABC1D5C5BDD00196B2E /* editViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = editViewController.swift; sourceTree = "<group>"; };
 		D7CCA2BA1D5AFC7D00349915 /* tsudukuNikki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tsudukuNikki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7CCA2BD1D5AFC7D00349915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7CCA2BF1D5AFC7D00349915 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +54,9 @@
 		D7CCA2DC1D5AFC7D00349915 /* tsudukuNikkiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tsudukuNikkiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7CCA2E01D5AFC7D00349915 /* tsudukuNikkiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tsudukuNikkiUITests.swift; sourceTree = "<group>"; };
 		D7CCA2E21D5AFC7D00349915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7CCA2EE1D5AFFDD00349915 /* listViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listViewController.swift; sourceTree = "<group>"; };
+		D7CCA2F01D5B024200349915 /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
+		D7CCA2F21D5B02F600349915 /* header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = header.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +113,11 @@
 				D7CCA2C71D5AFC7D00349915 /* Assets.xcassets */,
 				D7CCA2C91D5AFC7D00349915 /* LaunchScreen.storyboard */,
 				D7CCA2CC1D5AFC7D00349915 /* Info.plist */,
+				D7CCA2F21D5B02F600349915 /* header.jpg */,
 				D7CCA2C41D5AFC7D00349915 /* tsudukuNikki.xcdatamodeld */,
+				D7CCA2F01D5B024200349915 /* icon.jpg */,
+				D7CCA2EE1D5AFFDD00349915 /* listViewController.swift */,
+				D798AABC1D5C5BDD00196B2E /* editViewController.swift */,
 			);
 			path = tsudukuNikki;
 			sourceTree = "<group>";
@@ -238,6 +250,8 @@
 				D7CCA2CB1D5AFC7D00349915 /* LaunchScreen.storyboard in Resources */,
 				D7CCA2C81D5AFC7D00349915 /* Assets.xcassets in Resources */,
 				D7CCA2C31D5AFC7D00349915 /* Main.storyboard in Resources */,
+				D7CCA2F11D5B024200349915 /* icon.jpg in Resources */,
+				D7CCA2F31D5B02F700349915 /* header.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +278,8 @@
 			files = (
 				D7CCA2C01D5AFC7D00349915 /* ViewController.swift in Sources */,
 				D7CCA2C61D5AFC7D00349915 /* tsudukuNikki.xcdatamodeld in Sources */,
+				D7CCA2EF1D5AFFDD00349915 /* listViewController.swift in Sources */,
+				D798AABD1D5C5BDD00196B2E /* editViewController.swift in Sources */,
 				D7CCA2BE1D5AFC7D00349915 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,6 +507,7 @@
 				D7CCA2E71D5AFC7D00349915 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D7CCA2E81D5AFC7D00349915 /* Build configuration list for PBXNativeTarget "tsudukuNikkiTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +516,7 @@
 				D7CCA2EA1D5AFC7D00349915 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D7CCA2EB1D5AFC7D00349915 /* Build configuration list for PBXNativeTarget "tsudukuNikkiUITests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +525,7 @@
 				D7CCA2ED1D5AFC7D00349915 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
