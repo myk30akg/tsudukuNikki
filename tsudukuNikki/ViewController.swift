@@ -52,7 +52,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             //1行目が選択された時
             //print("1行目を選択")
             performSegueWithIdentifier("calenderViewSegue", sender: nil)
-        
         default:
             //それ以外が選択された時
             print("不明")

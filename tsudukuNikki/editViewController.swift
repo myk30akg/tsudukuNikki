@@ -13,12 +13,20 @@ class editViewController: UIViewController {
     @IBOutlet weak var diaryDatePicker: UIDatePicker!
     @IBOutlet weak var diaryTextView: UITextView!
     
-    var diaryList = [ ["date":"2016-05-13", "diary":"日記1"],
-                      ["date":"2016-05-14", "diary":"日記2"],
-                      ["date":"2016-05-15", "diary":"日記3"],]
+    var diaryList = [ ["date":"", "diary":""],]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        diaryDatePicker.datePickerMode = UIDatePickerMode.Date
+        let df = NSDateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        //型変換
+        var dateStr = df.stringFromDate(diaryDatePicker.date)
+        print(dateStr)
+
+        
+        
         //userDefaultから保存した配列を取り出す
         var myDefault = NSUserDefaults.standardUserDefaults()
         
@@ -34,8 +42,12 @@ class editViewController: UIViewController {
 
     }
     @IBAction func tapSaveBtn(sender: UIButton) {
+        //日付をString型に変換
+        let df = NSDateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        var dateStr = df.stringFromDate(diaryDatePicker.date)
         //タイトルを追加
-        diaryList.append(["date":"", "category":"", "diary":""])
+        diaryList.append(["date":dateStr, "diary":""])
         print(diaryList)
         
         //UserDefaultに保存

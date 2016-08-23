@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D76F50011D6C28C400EA52BC /* showViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76F50001D6C28C400EA52BC /* showViewController.swift */; };
 		D798AABD1D5C5BDD00196B2E /* editViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798AABC1D5C5BDD00196B2E /* editViewController.swift */; };
 		D7BEC2271D619BCF003D0879 /* calenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BEC2261D619BCF003D0879 /* calenderViewController.swift */; };
 		D7CCA2BE1D5AFC7D00349915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCA2BD1D5AFC7D00349915 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D76F50001D6C28C400EA52BC /* showViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = showViewController.swift; sourceTree = "<group>"; };
 		D798AABC1D5C5BDD00196B2E /* editViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = editViewController.swift; sourceTree = "<group>"; };
 		D7BEC2261D619BCF003D0879 /* calenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calenderViewController.swift; sourceTree = "<group>"; };
 		D7CCA2BA1D5AFC7D00349915 /* tsudukuNikki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tsudukuNikki.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +123,7 @@
 				D7CCA2EE1D5AFFDD00349915 /* listViewController.swift */,
 				D798AABC1D5C5BDD00196B2E /* editViewController.swift */,
 				D7BEC2261D619BCF003D0879 /* calenderViewController.swift */,
+				D76F50001D6C28C400EA52BC /* showViewController.swift */,
 			);
 			path = tsudukuNikki;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				D7CCA2C01D5AFC7D00349915 /* ViewController.swift in Sources */,
 				D7CCA2C61D5AFC7D00349915 /* tsudukuNikki.xcdatamodeld in Sources */,
 				D7CCA2EF1D5AFFDD00349915 /* listViewController.swift in Sources */,
+				D76F50011D6C28C400EA52BC /* showViewController.swift in Sources */,
 				D798AABD1D5C5BDD00196B2E /* editViewController.swift in Sources */,
 				D7BEC2271D619BCF003D0879 /* calenderViewController.swift in Sources */,
 				D7CCA2BE1D5AFC7D00349915 /* AppDelegate.swift in Sources */,
@@ -428,10 +432,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = tsudukuNikki/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miyuki.tsudukuNikki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -439,10 +446,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = tsudukuNikki/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miyuki.tsudukuNikki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

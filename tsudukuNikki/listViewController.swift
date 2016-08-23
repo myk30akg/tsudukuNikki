@@ -9,11 +9,35 @@
 import UIKit
 
 class listViewController: UIViewController {
+    @IBOutlet weak var listTableView: UITableView!
+    
+    var diaryList = ["日記1","日記2","日記3","日記4"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //TableViewに表示する行数を決定する
+        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            //配列の中身の分だけ表示
+            return diaryList.count
+            }
+        //表示する行の中身
+        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+            var cell = UITableViewCell(style: .Default, reuseIdentifier:"listCell")
+            
+            cell.textLabel!.text = diaryList[indexPath.row]
+            return cell
+            }
+        //セルが選択されたとき
+        func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+            print("\(indexPath.row)行目を選択")
+            
+            //画面遷移
+            performSegueWithIdentifier("showViewController", sender: nil)
+            var row = indexPath.row
+         
+        }
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
