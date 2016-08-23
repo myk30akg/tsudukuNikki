@@ -8,14 +8,15 @@
 
 import UIKit
 
-class listViewController: UIViewController {
+class listViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var listTableView: UITableView!
     
     var diaryList = ["日記1","日記2","日記3","日記4"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
         //TableViewに表示する行数を決定する
         func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             //配列の中身の分だけ表示
@@ -38,7 +39,6 @@ class listViewController: UIViewController {
          
         }
 
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
