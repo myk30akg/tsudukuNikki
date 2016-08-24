@@ -13,8 +13,9 @@ class editViewController: UIViewController {
     @IBOutlet weak var diaryDatePicker: UIDatePicker!
     @IBOutlet weak var diaryTextView: UITextView!
     
-    var diaryList = [ ["date":"", "diary":""],]
-
+    //空の辞書データ<文字列:文字列>
+    var diaryList = [Dictionary<String, String>()]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,15 +25,14 @@ class editViewController: UIViewController {
         //型変換
         var dateStr = df.stringFromDate(diaryDatePicker.date)
         print(dateStr)
-
         
         
         //userDefaultから保存した配列を取り出す
         var myDefault = NSUserDefaults.standardUserDefaults()
         
         //UserDefaultを全削除する
-        //        var appDomain:String = NSBundle.mainBundle().bundleIdentifier!
-        //        myDefault.removePersistentDomainForName(appDomain)
+//          var appDomain:String = NSBundle.mainBundle().bundleIdentifier!
+//          myDefault.removePersistentDomainForName(appDomain)
         
         if (myDefault.objectForKey("diaryList") != nil) {
             //データを呼び出して
@@ -46,13 +46,22 @@ class editViewController: UIViewController {
         let df = NSDateFormatter()
         df.dateFormat = "yyyy/MM/dd"
         var dateStr = df.stringFromDate(diaryDatePicker.date)
-        //タイトルを追加
-        diaryList.append(["date":dateStr, "diary":""])
-        print(diaryList)
-        
-        //UserDefaultに保存
+                //UserDefaultに保存
         //ユーザーデフォルトを用意する
         var myDefault = NSUserDefaults.standardUserDefaults()
+        
+        
+        if (myDefault.objectForKey("diaryList") != nil) {
+            //タイトルを追加
+            diaryList.append(["date":dateStr, "diary":diaryTextView.text])
+            
+
+        }else{
+            diaryList = [["date":dateStr, "diary":diaryTextView.text]]
+        }
+        
+        print(diaryList)
+        
         
         //データを書き込んで
         myDefault.setObject(diaryList, forKey: "diaryList")

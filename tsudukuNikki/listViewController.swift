@@ -11,10 +11,20 @@ import UIKit
 class listViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var listTableView: UITableView!
     
-    var diaryList = ["日記1","日記2","日記3","日記4"]
+    var diaryList = [Dictionary<String, String>()]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //ユーザーデフォルトを用意する
+        var myDefault = NSUserDefaults.standardUserDefaults()
+        
+        if (myDefault.objectForKey("diaryList") != nil) {
+            //データを呼び出して
+            diaryList = myDefault.objectForKey("diaryList") as! [Dictionary]
+        }
+        print(diaryList)
+        
+        
     }
     
         //TableViewに表示する行数を決定する
@@ -22,19 +32,21 @@ class listViewController: UIViewController, UITableViewDataSource, UITableViewDe
             //配列の中身の分だけ表示
             return diaryList.count
             }
+    
         //表示する行の中身
         func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             var cell = UITableViewCell(style: .Default, reuseIdentifier:"listCell")
             
-            cell.textLabel!.text = diaryList[indexPath.row]
+            cell.textLabel!.text = diaryList[indexPath.row]["date"]! as String
             return cell
             }
+    
         //セルが選択されたとき
         func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
             print("\(indexPath.row)行目を選択")
             
             //画面遷移
-            performSegueWithIdentifier("showViewController", sender: nil)
+            performSegueWithIdentifier("showDetailSegue", sender: nil)
             var row = indexPath.row
          
         }
