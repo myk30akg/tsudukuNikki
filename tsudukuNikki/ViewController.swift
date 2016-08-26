@@ -13,6 +13,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var myIconImage: UIImageView!
     @IBOutlet weak var topTableView: UITableView!
     
+    
+    
     var menuList = ["日記一覧","カレンダー","検索","設定","使い方"]
     var selectedIndex  =  -1
 

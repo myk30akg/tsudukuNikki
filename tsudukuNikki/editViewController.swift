@@ -15,10 +15,11 @@ class editViewController: UIViewController {
     
     //空の辞書データ<文字列:文字列>
     var diaryList = [Dictionary<String, String>()]
+    var selectedIndex = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //DatePickerの設定
         diaryDatePicker.datePickerMode = UIDatePickerMode.Date
         let df = NSDateFormatter()
         df.dateFormat = "yyyy/MM/dd"
@@ -30,7 +31,7 @@ class editViewController: UIViewController {
         //userDefaultから保存した配列を取り出す
         var myDefault = NSUserDefaults.standardUserDefaults()
         
-        //UserDefaultを全削除する
+        //UserDefaultを全削除する(日記の日付・タイトルを全削除したいときだけ実行すること！)
 //          var appDomain:String = NSBundle.mainBundle().bundleIdentifier!
 //          myDefault.removePersistentDomainForName(appDomain)
         
@@ -39,8 +40,15 @@ class editViewController: UIViewController {
             diaryList = myDefault.objectForKey("diaryList") as! [Dictionary]
         }
         print(diaryList)
+        if selectedIndex >= 0{
+            
+            var dateFromStr = df.dateFromString(diaryList[selectedIndex]["date"]!)
+            diaryDatePicker.date = dateFromStr!
+            diaryTextView.text  = diaryList[selectedIndex]["diary"]! as String
+        }
 
     }
+    //保存ボタンを押したときの処理
     @IBAction func tapSaveBtn(sender: UIButton) {
         //日付をString型に変換
         let df = NSDateFormatter()
@@ -52,10 +60,8 @@ class editViewController: UIViewController {
         
         
         if (myDefault.objectForKey("diaryList") != nil) {
-            //タイトルを追加
+            //タイトル(日付)を追加
             diaryList.append(["date":dateStr, "diary":diaryTextView.text])
-            
-
         }else{
             diaryList = [["date":dateStr, "diary":diaryTextView.text]]
         }

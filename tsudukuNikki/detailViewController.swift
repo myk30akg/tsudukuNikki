@@ -31,6 +31,17 @@ class detailViewController: UIViewController {
         
     }
 
+    //セグエを通って画面遷移をするとき
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+        var editVC = segue.destinationViewController as! editViewController
+            
+        editVC.selectedIndex = selectedIndex
+
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
