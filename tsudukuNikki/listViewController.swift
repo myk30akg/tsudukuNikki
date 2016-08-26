@@ -8,10 +8,13 @@
 
 import UIKit
 
+
+
 class listViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var listTableView: UITableView!
     
     var diaryList = [Dictionary<String, String>()]
+    var selectedIndex = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +47,24 @@ class listViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //セルが選択されたとき
         func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
             print("\(indexPath.row)行目を選択")
-            
+            selectedIndex = indexPath.row
             //画面遷移
             performSegueWithIdentifier("showDetailSegue", sender: nil)
             var row = indexPath.row
          
         }
+    //セグエを通って画面遷移をするとき
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "newEditSegue" {
+            segue.destinationViewController as! editViewController
+        }else{
+            var showVC = segue.destinationViewController as! detailViewController
+        
+            showVC.selectedIndex = selectedIndex
+        }
+        
+    }
 
 
     override func didReceiveMemoryWarning() {

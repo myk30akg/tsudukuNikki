@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D76F50011D6C28C400EA52BC /* showViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76F50001D6C28C400EA52BC /* showViewController.swift */; };
 		D798AABD1D5C5BDD00196B2E /* editViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798AABC1D5C5BDD00196B2E /* editViewController.swift */; };
 		D7BEC2271D619BCF003D0879 /* calenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BEC2261D619BCF003D0879 /* calenderViewController.swift */; };
 		D7CCA2BE1D5AFC7D00349915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCA2BD1D5AFC7D00349915 /* AppDelegate.swift */; };
@@ -21,6 +20,7 @@
 		D7CCA2EF1D5AFFDD00349915 /* listViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCA2EE1D5AFFDD00349915 /* listViewController.swift */; };
 		D7CCA2F11D5B024200349915 /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D7CCA2F01D5B024200349915 /* icon.jpg */; };
 		D7CCA2F31D5B02F700349915 /* header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D7CCA2F21D5B02F600349915 /* header.jpg */; };
+		D7E14CF61D6EDA140098FBDA /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E14CF51D6EDA140098FBDA /* detailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D76F50001D6C28C400EA52BC /* showViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = showViewController.swift; sourceTree = "<group>"; };
 		D798AABC1D5C5BDD00196B2E /* editViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = editViewController.swift; sourceTree = "<group>"; };
 		D7BEC2261D619BCF003D0879 /* calenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calenderViewController.swift; sourceTree = "<group>"; };
 		D7CCA2BA1D5AFC7D00349915 /* tsudukuNikki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tsudukuNikki.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +60,7 @@
 		D7CCA2EE1D5AFFDD00349915 /* listViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listViewController.swift; sourceTree = "<group>"; };
 		D7CCA2F01D5B024200349915 /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
 		D7CCA2F21D5B02F600349915 /* header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = header.jpg; sourceTree = "<group>"; };
+		D7E14CF51D6EDA140098FBDA /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,7 @@
 				D7CCA2EE1D5AFFDD00349915 /* listViewController.swift */,
 				D798AABC1D5C5BDD00196B2E /* editViewController.swift */,
 				D7BEC2261D619BCF003D0879 /* calenderViewController.swift */,
-				D76F50001D6C28C400EA52BC /* showViewController.swift */,
+				D7E14CF51D6EDA140098FBDA /* detailViewController.swift */,
 			);
 			path = tsudukuNikki;
 			sourceTree = "<group>";
@@ -285,9 +285,9 @@
 				D7CCA2C01D5AFC7D00349915 /* ViewController.swift in Sources */,
 				D7CCA2C61D5AFC7D00349915 /* tsudukuNikki.xcdatamodeld in Sources */,
 				D7CCA2EF1D5AFFDD00349915 /* listViewController.swift in Sources */,
-				D76F50011D6C28C400EA52BC /* showViewController.swift in Sources */,
 				D798AABD1D5C5BDD00196B2E /* editViewController.swift in Sources */,
 				D7BEC2271D619BCF003D0879 /* calenderViewController.swift in Sources */,
+				D7E14CF61D6EDA140098FBDA /* detailViewController.swift in Sources */,
 				D7CCA2BE1D5AFC7D00349915 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
