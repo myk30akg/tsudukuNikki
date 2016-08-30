@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class editViewController: UIViewController {
     @IBOutlet weak var diarySaveBtn: UIButton!
@@ -50,30 +51,54 @@ class editViewController: UIViewController {
     }
     //保存ボタンを押したときの処理
     @IBAction func tapSaveBtn(sender: UIButton) {
-        //日付をString型に変換
-        let df = NSDateFormatter()
-        df.dateFormat = "yyyy/MM/dd"
-        var dateStr = df.stringFromDate(diaryDatePicker.date)
-                //UserDefaultに保存
-        //ユーザーデフォルトを用意する
-        var myDefault = NSUserDefaults.standardUserDefaults()
+//        //日付をString型に変換
+//        let df = NSDateFormatter()
+//        df.dateFormat = "yyyy/MM/dd"
+//        var dateStr = df.stringFromDate(diaryDatePicker.date)
+//                //UserDefaultに保存
+//        //ユーザーデフォルトを用意する
+//        var myDefault = NSUserDefaults.standardUserDefaults()
+//        
+//        
+//        if (myDefault.objectForKey("diaryList") != nil) {
+//            //タイトル(日付)を追加
+//            diaryList.append(["date":dateStr, "diary":diaryTextView.text])
         
-        
-        if (myDefault.objectForKey("diaryList") != nil) {
-            //タイトル(日付)を追加
-            diaryList.append(["date":dateStr, "diary":diaryTextView.text])
+            
+            //CoreData
+            //データの保存
+            // AppDeleteをコードで読み込む
+            let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+            
+            // Entityの操作を制御するmanagedObjectContextをappDelegateから作成
+            if let managedObjectContext = appDelegate!.managedObjectContext {
+                
+                // 新しくデータを追加するためのEntityを作成します
+                let managedObject: AnyObject = NSEntityDescription.insertNewObjectForEntityForName("Diary", inManagedObjectContext: managedObjectContext)
+                
+                // 「Diary Entity」からObjectを生成し、Attributesに接続して値を代入
+                let diary = managedObject as! Diary
+                diary.date = NSDate()
+                diary.detail = "日記本文をここに書き込む"
+                //diary.feeling = "Smile"  これで合ってる？
+                
+                // データの保存処理
+                appDelegate.saveContext() // ←←← これ重要
+                
+            }
+            
         }else{
-            diaryList = [["date":dateStr, "diary":diaryTextView.text]]
-        }
-        
-        print(diaryList)
-        
-        
-        //データを書き込んで
-        myDefault.setObject(diaryList, forKey: "diaryList")
-        
-        //即反映させる
-        myDefault.synchronize()
+//            diaryList = [["date":dateStr, "diary":diaryTextView.text]]
+//        }
+//        
+//        print(diaryList)
+//        
+//        
+//        //データを書き込んで
+//        myDefault.setObject(diaryList, forKey: "diaryList")
+//        
+//        //即反映させる
+//        myDefault.synchronize()
 
     }
 

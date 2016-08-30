@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D786EE501D7556BA00749FBD /* Diary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786EE4E1D7556BA00749FBD /* Diary+CoreDataProperties.swift */; };
+		D786EE511D7556BA00749FBD /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786EE4F1D7556BA00749FBD /* Diary.swift */; };
 		D798AABD1D5C5BDD00196B2E /* editViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798AABC1D5C5BDD00196B2E /* editViewController.swift */; };
 		D7BEC2271D619BCF003D0879 /* calenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BEC2261D619BCF003D0879 /* calenderViewController.swift */; };
 		D7CCA2BE1D5AFC7D00349915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCA2BD1D5AFC7D00349915 /* AppDelegate.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D786EE4E1D7556BA00749FBD /* Diary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Diary+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D786EE4F1D7556BA00749FBD /* Diary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		D798AABC1D5C5BDD00196B2E /* editViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = editViewController.swift; sourceTree = "<group>"; };
 		D7BEC2261D619BCF003D0879 /* calenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calenderViewController.swift; sourceTree = "<group>"; };
 		D7CCA2BA1D5AFC7D00349915 /* tsudukuNikki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tsudukuNikki.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +128,8 @@
 				D798AABC1D5C5BDD00196B2E /* editViewController.swift */,
 				D7BEC2261D619BCF003D0879 /* calenderViewController.swift */,
 				D7E14CF51D6EDA140098FBDA /* detailViewController.swift */,
+				D786EE4E1D7556BA00749FBD /* Diary+CoreDataProperties.swift */,
+				D786EE4F1D7556BA00749FBD /* Diary.swift */,
 			);
 			path = tsudukuNikki;
 			sourceTree = "<group>";
@@ -287,6 +293,8 @@
 				D7CCA2EF1D5AFFDD00349915 /* listViewController.swift in Sources */,
 				D798AABD1D5C5BDD00196B2E /* editViewController.swift in Sources */,
 				D7BEC2271D619BCF003D0879 /* calenderViewController.swift in Sources */,
+				D786EE511D7556BA00749FBD /* Diary.swift in Sources */,
+				D786EE501D7556BA00749FBD /* Diary+CoreDataProperties.swift in Sources */,
 				D7E14CF61D6EDA140098FBDA /* detailViewController.swift in Sources */,
 				D7CCA2BE1D5AFC7D00349915 /* AppDelegate.swift in Sources */,
 			);
