@@ -54,10 +54,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             //1行目が選択された時
             //print("1行目を選択")
             performSegueWithIdentifier("calenderViewSegue", sender: nil)
-        case 2:
+        case 3:
             //3行目が選択された時
             //print("3行目を選択")
-            performSegueWithIdentifier("listviewSegue", sender: nil)
+            performSegueWithIdentifier("settingViewSegue", sender: nil)
         default:
             //それ以外が選択された時
             print("不明")
