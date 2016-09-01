@@ -29,25 +29,26 @@ class editViewController: UIViewController {
         print(dateStr)
         
         
-        //userDefaultから保存した配列を取り出す
-        var myDefault = NSUserDefaults.standardUserDefaults()
-        
-        //UserDefaultを全削除する(日記の日付・タイトルを全削除したいときだけ実行すること！)
-//          var appDomain:String = NSBundle.mainBundle().bundleIdentifier!
-//          myDefault.removePersistentDomainForName(appDomain)
-        
-        if (myDefault.objectForKey("diaryList") != nil) {
-            //データを呼び出して
-            diaryList = myDefault.objectForKey("diaryList") as! [Dictionary]
-        }
-        print(diaryList)
+//        //userDefaultから保存した配列を取り出す
+//        var myDefault = NSUserDefaults.standardUserDefaults()
+//        
+//        //UserDefaultを全削除する(日記の日付・タイトルを全削除したいときだけ実行すること！)
+////          var appDomain:String = NSBundle.mainBundle().bundleIdentifier!
+////          myDefault.removePersistentDomainForName(appDomain)
+//        
+//        if (myDefault.objectForKey("diaryList") != nil) {
+//            //データを呼び出して
+//            diaryList = myDefault.objectForKey("diaryList") as! [Dictionary]
+//        }
+//        print(diaryList)
+        read()
         if selectedIndex >= 0{
             
             var dateFromStr = df.dateFromString(diaryList[selectedIndex]["date"]!)
             diaryDatePicker.date = dateFromStr!
-            diaryTextView.text  = diaryList[selectedIndex]["diary"]! as String
+            diaryTextView.text  = diaryList[selectedIndex]["detail"]! as String
         }
-        read()
+        
         print(NSBundle.mainBundle())
     }
     // すでに存在するデータの読み込み処理
@@ -72,15 +73,28 @@ class editViewController: UIViewController {
             
             // フェッチリクエスト (データの検索と取得処理) の実行
             do {
-                let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+                let results = try! managedObjectContext.executeFetchRequest(fetchRequest)
                 print(results.count)
+                var diaryListTmp = [Dictionary<String, String>()]
                 for managedObject in results {
                     let diary = managedObject as! Diary
                     
                     var savedDate:NSDate = NSDate(timeIntervalSinceReferenceDate:diary.date)
+                    //空の配列[0]に代入、空ではなかったら新しく追加していくif文
+                    if diaryListTmp[0].count == 0 {
+                        
+                        diaryListTmp[0] = ["date":df.stringFromDate(savedDate),"detail":diary.detail!]
+                        
+                    }else{
+                        diaryListTmp.append(["date":df.stringFromDate(savedDate),"detail":diary.detail!])
+                        
+                    }
                         
                         print("date: \(df.stringFromDate(savedDate)), detail: \(diary.detail)")
                 }
+                //diaryListへの代入
+                diaryList = diaryListTmp
+                
             } catch let error1 as NSError {
                 error = error1
             }

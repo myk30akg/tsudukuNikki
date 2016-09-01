@@ -179,7 +179,7 @@
             </objects>
             <point key="canvasLocation" x="2183" y="-377"/>
         </scene>
-        <!--Title-->
+        <!--設定-->
         <scene sceneID="ohf-gB-aH3">
             <objects>
                 <viewController id="72C-1I-Ftk" customClass="settingViewController" customModule="tsudukuNikki" customModuleProvider="target" sceneMemberID="viewController">
@@ -191,19 +191,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RxC-pj-Nx2">
+                                <rect key="frame" x="204" y="129" width="51" height="31"/>
+                                <connections>
+                                    <action selector="onAlertSwich:" destination="72C-1I-Ftk" eventType="valueChanged" id="zo0-hO-wiC"/>
+                                </connections>
+                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHf-qI-dWS">
-                                <rect key="frame" x="63" y="129" width="67" height="21"/>
+                                <rect key="frame" x="57" y="134" width="67" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RxC-pj-Nx2">
-                                <rect key="frame" x="199" y="124" width="51" height="31"/>
-                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="WGY-8c-PzO"/>
+                    <navigationItem key="navigationItem" title="設定" id="WGY-8c-PzO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ABa-oY-D8P" userLabel="First Responder" sceneMemberID="firstResponder"/>

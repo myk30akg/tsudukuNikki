@@ -55,20 +55,34 @@ class listViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             // フェッチリクエスト (データの検索と取得処理) の実行
             do {
-                let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+                let results = (try! managedObjectContext.executeFetchRequest(fetchRequest))
                 print(results.count)
+                var diaryListTmp = [Dictionary<String, String>()]
                 for managedObject in results {
                     let diary = managedObject as! Diary
-                    
-                    //配列の作成
-                    //diaryListへの代入
-                    
-                    
-                    
+
                     var savedDate:NSDate = NSDate(timeIntervalSinceReferenceDate:diary.date)
+                    //空の配列[0]に代入、空ではなかったら新しく追加していくif文
+                    if diaryListTmp[0].count == 0 {
+                        
+                        diaryListTmp[0] = ["date":df.stringFromDate(savedDate),"detail":diary.detail!]
+                        
+                    }else{
+                        diaryListTmp.append(["date":df.stringFromDate(savedDate),"detail":diary.detail!])
+                        
+                    }
+                    
+                    
+//                    //配列の作成
+//                    diaryListTmp.append(["date":df.stringFromDate(savedDate),"detail":diary.detail!])
+//                    
                     
                     print("date: \(df.stringFromDate(savedDate)), detail: \(diary.detail)")
                 }
+                
+                //diaryListへの代入
+                diaryList = diaryListTmp
+                
             } catch let error1 as NSError {
                 error = error1
             }

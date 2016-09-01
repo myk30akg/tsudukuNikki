@@ -21,6 +21,29 @@ class settingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onAlertSwich(sender: UISwitch) {
+        print("通知オン")
+        
+        //ローカル通知の設定
+        let notification : UILocalNotification = UILocalNotification()
+        
+        //タイトル
+        notification.alertTitle = "Remember"
+        
+        //通知メッセージ
+        notification.alertBody = "日記を書きましょう！"
+        
+        //Timezoneの設定
+        notification.timeZone = NSTimeZone.defaultTimeZone()
+        
+        //10秒後に通知を設定(NSDateは現在の時間)
+        notification.fireDate = NSDate(timeIntervalSinceNow: 10)
+        
+        //Notificationを表示する
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+
+        
+    }
 
     /*
     // MARK: - Navigation
