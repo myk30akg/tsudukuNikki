@@ -76,7 +76,7 @@
         <!--List View Controller-->
         <scene sceneID="fOB-ME-xsC">
             <objects>
-                <viewController id="yYa-Zl-WIJ" customClass="listViewController" customModule="tsudukuNikki" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="listView" id="yYa-Zl-WIJ" customClass="listViewController" customModule="tsudukuNikki" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rzq-Kg-Yw5"/>
                         <viewControllerLayoutGuide type="bottom" id="W6z-C2-q4M"/>
@@ -208,6 +208,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="設定" id="WGY-8c-PzO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="alertSwitch" destination="RxC-pj-Nx2" id="DIZ-Lr-7lQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ABa-oY-D8P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -311,6 +314,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vcU-bM-7Nm"/>
+        <segue reference="nQ3-VK-uT3"/>
     </inferredMetricsTieBreakers>
 </document>

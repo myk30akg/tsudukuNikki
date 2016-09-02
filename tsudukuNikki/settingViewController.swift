@@ -9,9 +9,11 @@
 import UIKit
 
 class settingViewController: UIViewController {
+    @IBOutlet weak var alertSwitch: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        alertSwitch.on = false
 
         // Do any additional setup after loading the view.
     }

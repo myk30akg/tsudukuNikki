@@ -42,7 +42,7 @@ class editViewController: UIViewController {
 //        }
 //        print(diaryList)
         read()
-        if selectedIndex >= 0{
+        if selectedIndex > -1{
             
             var dateFromStr = df.dateFromString(diaryList[selectedIndex]["date"]!)
             diaryDatePicker.date = dateFromStr!
@@ -99,6 +99,9 @@ class editViewController: UIViewController {
                 error = error1
             }
         }
+        //画面遷移のコード
+//        let listViewController = self.storyboard!.instantiateViewControllerWithIdentifier( "listView" ) as! UIViewController
+//        self.presentViewController( listViewController, animated: true, completion: nil)
     }
 
     
@@ -118,41 +121,75 @@ class editViewController: UIViewController {
 //            diaryList.append(["date":dateStr, "diary":diaryTextView.text])
         
             
-            //CoreData
-            //データの保存
+        //★CoreData
+        //データの保存
             // AppDeleteをコードで読み込む
             let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
             
             // Entityの操作を制御するmanagedObjectContextをappDelegateから作成
-        if let managedObjectContext:NSManagedObjectContext = appDelegate!.managedObjectContext {
+            if let managedObjectContext:NSManagedObjectContext = appDelegate!.managedObjectContext {
+            
+                if selectedIndex > -1 {
+                    // Update
+                    //データ更新
+                    // Entityを指定する設定
+                    let entityDiscription = NSEntityDescription.entityForName("Diary", inManagedObjectContext: managedObjectContext)
                 
+                    let fetchRequest = NSFetchRequest(entityName: "Diary")
+                    fetchRequest.entity = entityDiscription
+                
+                    // ★データを一件取得する
+                    // 指定日の終わりの時間の変数
+                    
+
+                    let catchEndDate = diaryDatePicker.date
+                    // catchEndDate2に 23:59:59 加算
+                    let catchEndDate2Plus1Day: NSDate = NSDate(timeInterval:24*60*60-1, sinceDate:catchEndDate)
+                    let predicate = NSPredicate(format: "(date >= %@)and(date <= %@)", diaryDatePicker.date,catchEndDate2Plus1Day)
+                    // print(predicate)
+                    fetchRequest.predicate = predicate
+                    var error: NSError? = nil
+                    
+                    // フェッチリクエストの実行
+                    do {
+                        let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+                        print("更新対象データ数\(results.count)")
+                    
+                        for managedObject in results {
+                            let diary = managedObject as! Diary
+                            print("更新するデータ => date: \(diary.date), detail: \(diary.detail)")
+                        
+                            // アップデート処理の本体
+                            diary.date = diaryDatePicker.date.timeIntervalSinceReferenceDate
+                            diary.detail = diaryTextView.text
+                            diary.feeling = "Smile"  //これで合ってる？
+
+                            
+                            // アップデートしたことを保存
+                            appDelegate!.saveContext()
+                        }
+                } catch let error1 as NSError {
+                    error = error1
+                }
+            }else{
+                // Insert
                 // 新しくデータを追加するためのEntityを作成します
                 let managedObject: AnyObject = NSEntityDescription.insertNewObjectForEntityForName("Diary", inManagedObjectContext: managedObjectContext)
                 
                 // 「Diary Entity」からObjectを生成し、Attributesに接続して値を代入
                 let diary = managedObject as! Diary
                 diary.date = diaryDatePicker.date.timeIntervalSinceReferenceDate
-                diary.detail = "日記本文をここに書き込む"
+                diary.detail = diaryTextView.text
                 diary.feeling = "Smile"  //これで合ってる？
-            
+                
                 // データの保存処理
                 appDelegate!.saveContext() // ←←← これ重要
-            
-        }else{
-//            diaryList = [["date":dateStr, "diary":diaryTextView.text]]
-//        }
-//        
-//        print(diaryList)
-//        
-//        
-//        //データを書き込んで
-//        myDefault.setObject(diaryList, forKey: "diaryList")
-//        
-//        //即反映させる
-//        myDefault.synchronize()
 
+            }
+            
         }
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -169,5 +206,4 @@ class editViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
