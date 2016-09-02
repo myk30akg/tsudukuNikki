@@ -99,9 +99,6 @@ class editViewController: UIViewController {
                 error = error1
             }
         }
-        //画面遷移のコード
-//        let listViewController = self.storyboard!.instantiateViewControllerWithIdentifier( "listView" ) as! UIViewController
-//        self.presentViewController( listViewController, animated: true, completion: nil)
     }
 
     
@@ -188,6 +185,10 @@ class editViewController: UIViewController {
             }
             
         }
+        //画面遷移のコード
+        let listViewController = self.storyboard!.instantiateViewControllerWithIdentifier( "listView" ) as! UIViewController
+        self.presentViewController( listViewController, animated: true, completion: nil)
+ 
     }
 
 
