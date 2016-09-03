@@ -13,6 +13,7 @@ import CoreData
 
 class listViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var listTableView: UITableView!
+    @IBOutlet weak var diaryDatePicker: UIDatePicker!
     
     var diaryList = [Dictionary<String, String>()]
     var selectedIndex = -1
@@ -135,8 +136,35 @@ class listViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // 削除ボタンが押された時の処理
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
+            
+            // セルを削除
             diaryList.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
+            // Corecataの削除
+            let df = NSDateFormatter()
+            df.dateFormat = "yyyy/MM/dd"
+            let catchEndDate = df.dateFromString(diaryList[indexPath.row]["date"]!)
+            
+            // catchEndDate2に 23:59:59 加算
+            let catchEndDate2Plus1Day: NSDate = NSDate(timeInterval:24*60*60-1, sinceDate:catchEndDate!)
+          
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let fetchRequest = NSFetchRequest(entityName: "Diary")
+            let predicate = NSPredicate(format: "(date >= %@)and(date <= %@)", catchEndDate!, catchEndDate2Plus1Day)
+            fetchRequest.predicate = predicate
+            
+            do {
+                let diarydata = try appDelegate.managedObjectContext.executeFetchRequest(fetchRequest) as! [Diary]
+                for diary in diarydata {
+                    appDelegate.managedObjectContext.deleteObject(diary)
+                }
+            } catch let error as NSError {
+                print(error)
+            }
+            
+            // コミット
+            appDelegate.saveContext()
         }
     }
 
