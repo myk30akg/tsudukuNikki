@@ -137,10 +137,6 @@ class listViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
-            // セルを削除
-            diaryList.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-            
             // Corecataの削除
             let df = NSDateFormatter()
             df.dateFormat = "yyyy/MM/dd"
@@ -158,13 +154,16 @@ class listViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 let diarydata = try appDelegate.managedObjectContext.executeFetchRequest(fetchRequest) as! [Diary]
                 for diary in diarydata {
                     appDelegate.managedObjectContext.deleteObject(diary)
+                    
+                // 削除したことを保存・反映
+                    appDelegate.saveContext()
                 }
             } catch let error as NSError {
                 print(error)
             }
-            
-            // コミット
-            appDelegate.saveContext()
+            // セルを削除
+            diaryList.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
 
