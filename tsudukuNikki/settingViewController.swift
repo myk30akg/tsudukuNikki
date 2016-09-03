@@ -24,25 +24,33 @@ class settingViewController: UIViewController {
     }
     
     @IBAction func onAlertSwich(sender: UISwitch) {
-        print("通知オン")
+        if alertSwitch.on {
+            print("通知スイッチオン")
         
-        //ローカル通知の設定
-        let notification : UILocalNotification = UILocalNotification()
+            //ローカル通知の設定
+            let notification : UILocalNotification = UILocalNotification()
         
-        //タイトル
-        notification.alertTitle = "Remember"
+            //タイトル
+            notification.alertTitle = "Remember"
         
-        //通知メッセージ
-        notification.alertBody = "日記を書きましょう！"
+            //通知メッセージ
+            notification.alertBody = "日記を書きましょう！"
         
-        //Timezoneの設定
-        notification.timeZone = NSTimeZone.defaultTimeZone()
+            //Timezoneの設定
+            notification.timeZone = NSTimeZone.defaultTimeZone()
         
-        //10秒後に通知を設定(NSDateは現在の時間)
-        notification.fireDate = NSDate(timeIntervalSinceNow: 10)
+            //10秒後に通知を設定(NSDateは現在の時間)
+            notification.fireDate = NSDate(timeIntervalSinceNow: 10)
         
-        //Notificationを表示する
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            //Notificationを表示する
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }else{
+            print("通知スイッチオフ")
+            //通知の削除
+            
+        }
+        
+        
 
         
     }
