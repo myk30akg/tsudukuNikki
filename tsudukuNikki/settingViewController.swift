@@ -40,14 +40,14 @@ class settingViewController: UIViewController {
             notification.timeZone = NSTimeZone.defaultTimeZone()
         
             //10秒後に通知を設定(NSDateは現在の時間)
-            notification.fireDate = NSDate(timeIntervalSinceNow: 10)
+            notification.fireDate = NSDate(timeIntervalSinceNow: 20)
         
             //Notificationを表示する
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
         }else{
             print("通知スイッチオフ")
             //通知の削除
-            
+            UIApplication.sharedApplication().cancelAllLocalNotifications();
         }
         
         
