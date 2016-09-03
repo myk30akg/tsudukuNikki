@@ -126,6 +126,19 @@ class listViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
     }
+    
+    // スワイプでセルの削除許可を設定(trueで編集許可)
+    func listTableView(tableView: UITableView,canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        return true
+    }
+    // 削除ボタンが押された時の処理
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            diaryList.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
 
 
     override func didReceiveMemoryWarning() {
